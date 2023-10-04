@@ -1,9 +1,3 @@
-<?php
-$jsonData = file_get_contents('users.json');
-$data = json_decode($jsonData);
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,6 +27,7 @@ $data = json_decode($jsonData);
         <input type="password" name="password" id="password">
 
         <input type="submit" value="invia">
+        <p>Sei gia registrato?<a href="login.html">Accedi</a></p>
     </form>
 
 </body>
