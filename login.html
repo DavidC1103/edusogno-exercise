@@ -5,25 +5,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Login Register for Edusogno</title>
 </head>
 
 <body>
+    
+    <header>
+        <img src="logo.svg" alt="Edusogno">
+    </header>
 
-    <form action="php/login.php" method="POST">
+    <main>
+        <h1>Hai gia un account?</h1>
+    
+        <form action="php/login.php" method="POST">
+    
+            <label for="email">Inserisci l'email</label>
+            <input type="email" name="email" id="email">
 
-        <h2>Accedi</h2>
-
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email">
-
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password">
-
-        <input type="submit" value="invia">
-        <p>Non sei registrato?<a href="index.html">Registrati</a></p>
-    </form>
-
+            <div class="password-input">
+                <label for="password">Inserisci la password</label>
+                <input type="password" name="password" id="password">
+                <i class="fa-regular fa-eye-slash" id="togglepw"></i>
+            </div>
+    
+            <input type="submit" value="Accedi" id="submit">
+            <p>Non hai ancora un profilo? <a href="index.html">Registrati</a></p>
+        </form>
+    
+    </main>
+    <script src="js/main.js"></script>
 </body>
 
 

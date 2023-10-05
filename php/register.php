@@ -13,11 +13,11 @@ $newUser = array(
 );
 //push into array or json
 $users[] = $newUser;
-var_dump($users);
 //codifico l'array aggiornato in json
 $newJsonData = json_encode($users);
 
 //aggiorno il json
 file_put_contents($fileName, $newJsonData);
 
-var_dump($users);
+
+header('location: ../login.html');

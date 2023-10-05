@@ -5,8 +5,6 @@ if ($_SESSION['logged'] !== true || !isset($_SESSION['logged'])) {
     header('location: login.html');
     exit;
 }
-var_dump($_SESSION['first_name']);
-var_dump($_SESSION['email']);
 
 ?>
 
@@ -18,13 +16,35 @@ var_dump($_SESSION['email']);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Dashboard</title>
 </head>
 
 <body>
-    <h1>Dashboard</h1>
-    <p><?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] ?></p>
-    <a href="./php/logout.php">Logout</a>
+    <header>
+        <img src="logo.svg" alt="Edusogno">
+    </header>
+
+    <main>
+        <h1>Ciao <?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] ?> ecco i tuoi Eventi</h1>
+
+        <div class="container">
+            <div class="todo">
+                <h2>Nome evento</h2>
+                <p>15-10-2022 15:00</p>
+                <input type="submit" value="JOIN" id="submit">
+            </div>
+            <div class="todo">
+                <h2>Nome evento</h2>
+            </div>
+            <div class="todo">
+                <h2>Nome evento</h2>
+            </div>
+        </div>
+
+        <a href="./php/logout.php" style="font-size: 25px; color:grey">Logout</a>
+    </main>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

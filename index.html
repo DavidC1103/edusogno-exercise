@@ -5,31 +5,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Login Register for Edusogno</title>
 </head>
 
 <body>
 
-    <form action="php/register.php" method="POST">
+    <header>
+        <img src="logo.svg" alt="Edusogno">
+    </header>
 
-        <h2>Registrati</h2>
+    <main>
+        <h1>Crea il tuo account</h1>
+    
 
-        <label for="first_name">First Name</label>
-        <input type="text" name="first_name" id="first_name" required>
+        <form action="php/register.php" method="POST">
 
-        <label for="last_name">Last Name</label>
-        <input type="text" name="last_name" id="last_name" required>
+            <label for="first_name">Inserisci il nome</label>
+            <input type="text" name="first_name" id="first_name" placeholder="Mario" required>
 
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email">
+            <label for="last_name">Inserisci il cognome</label>
+            <input type="text" name="last_name" id="last_name" placeholder="Rossi" required>
 
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password">
+            <label for="email">Inserisci l'email</label>
+            <input type="email" name="email" id="email" placeholder="name@example.com" required>
 
-        <input type="submit" value="invia">
-        <p>Sei gia registrato?<a href="login.html">Accedi</a></p>
-    </form>
+            <div class="password-input">
+                <label for="password">Inserisci la password</label>
+                <input type="password" name="password" id="password" placeholder="Scrivila qui" required>
+                <i class="fa-regular fa-eye-slash" id="togglepw"></i>
+            </div>
+            
 
+            <input type="submit" value="Registrati" id="submit">
+            <p>Sei gia registrato? <a href="login.html">Accedi</a></p>
+        </form>
+    
+    </main>
+<script src="js/main.js"></script>
 </body>
 
 
