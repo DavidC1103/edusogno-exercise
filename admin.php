@@ -5,6 +5,16 @@ if ($_SESSION['logged'] !== true || !isset($_SESSION['logged'])) {
     header('location: login.html');
     exit;
 }
+$userEmail = $_SESSION['email'];
+$jsonData = file_get_contents('users.json');
+$data = json_decode($jsonData, true);
+
+$loggedUser = null;
+foreach ($data as $user) {
+    if ($user['email'] === $userEmail) {
+        $loggedUser = $user;
+    }
+}
 
 ?>
 
@@ -29,19 +39,20 @@ if ($_SESSION['logged'] !== true || !isset($_SESSION['logged'])) {
         <h1>Ciao <?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] ?> ecco i tuoi Eventi</h1>
 
         <div class="container">
-            <div class="todo">
-                <h2>Nome evento</h2>
-                <p>15-10-2022 15:00</p>
-                <input type="submit" value="JOIN" id="submit">
-            </div>
-            <div class="todo">
-                <h2>Nome evento</h2>
-            </div>
-            <div class="todo">
-                <h2>Nome evento</h2>
-            </div>
+            <?php if (!empty($loggedUser['events'])) : ?>
+                <?php foreach ($loggedUser['events'] as $event) : ?>
+                    <div class="todo">
+                        <h2><?php echo $event['title']; ?></h2>
+                        <a id="submit" href="/view/view.php">VAI!</a>
+                    </div>
+                <?php endforeach; ?>
+            <?php else : ?>
+                <p>Nessun evento disponibile.</p>
+            <?php endif; ?>
+
         </div>
 
+        <a href="./view/create.php">prova</a>
         <a href="./php/logout.php" style="font-size: 25px; color:grey">Logout</a>
     </main>
     <script src="js/main.js"></script>

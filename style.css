@@ -26,13 +26,12 @@ header img {
 
 main {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: calc(100vh - 163px);
 }
 
 h1 {
+    margin-top: 100px;
     margin-bottom: 30px;
     font-size: 36px;
     color: #134077;
@@ -55,6 +54,7 @@ label {
 form {
     display: flex;
     flex-direction: column;
+    margin-top: 100px;
     background-color: white;
     padding: 50px;
     border: 1px solid #134077;
@@ -103,6 +103,7 @@ form input {
     padding: 20px;
     border-radius: 13px;
     height: 75px;
+    text-decoration: none;
 }
 
 #submit:hover {
@@ -124,14 +125,18 @@ input::placeholder {
 .container {
     width: 70%;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 100px;
-    margin-bottom: 300px;
 }
 
 .container .todo {
     padding: 50px;
     background-color: white;
+    min-width: 350px;
+    min-height: 220px;
+    max-width: calc(33.33% - 20px);
     text-align: start;
+    box-sizing: border-box;
+    margin-bottom: 100px;
 }

@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
     $name = $_POST['first_name'];
     $lastname = $_POST['last_name'];
+    $events = $_POST['events'];
     //ciclo gli utenti e verifico solo le credenziali che ci interessano
     foreach ($users as $user) {
         //se sono uguali a quelle salvate allora lo reindirizzo alla pagina admin
@@ -22,6 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['last_name'] = $user['last_name'];
             $_SESSION['email'] = $email;
             $_SESSION['password'] = $password;
+            $_SESSION['events'] = $events;
+
             $_SESSION['logged'] = true;
 
             header('Location: ../admin.php');

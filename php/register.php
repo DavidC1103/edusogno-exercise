@@ -4,12 +4,14 @@ $fileName = '../users.json';
 $jsonData = file_get_contents($fileName);
 //rendo il json un array associativo
 $users = json_decode($jsonData, true);
+$events = [];
 //creo un nuovo utente
 $newUser = array(
     'first_name' => $_POST['first_name'],
     'last_name' => $_POST['last_name'],
     'email' => $_POST['email'],
     'password' => $_POST['password'],
+    'events' => $events,
 );
 //push into array or json
 $users[] = $newUser;
