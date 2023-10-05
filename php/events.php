@@ -1,36 +1,48 @@
 <?php
 session_start();
-if ($_SESSION['logged'] !== true || !isset($_SESSION['logged'])) {
+if (!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
     header('location: login.html');
     exit;
 }
+require_once 'UserEvent.php';
+
 $fileName = '../users.json';
 $jsonData = file_get_contents($fileName);
-$data = json_decode($jsonData, true);
+$usersData = json_decode($jsonData, true);
 
-//Recupero l'utente loggato
+// Recupera l'email dell'utente loggato
 $userEmail = $_SESSION['email'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-
-    foreach ($data as &$user) {
-        if ($user['email'] === $userEmail) {
-            // Assicurati che $user['events'] sia un array associativo
-            if (!isset($user['events'])) {
-                $user['events'] = array();
-            }
-            $newEvent = array(
-                'title' => $_POST['title'],
-                'partecipants' => $_POST['partecipants'],
-                'description' => $_POST['description'],
-            );
-            $user['events'][] = $newEvent;
-            //aggiorno l'array in sessione
+    // Trova l'utente loggato tra gli utenti
+    $loggedInUser = null;
+    foreach ($usersData as $key => $userData) {
+        if ($userData['email'] === $userEmail) {
+            $loggedInUser = new User($userData);
+            $userIndex = $key; // Salva l'indice dell'utente loggato
         }
-        $newJsonData = json_encode($data);
+    }
+
+    if ($loggedInUser !== null) {
+        // Crea un nuovo oggetto Event utilizzando i dati del form
+        $newEventData = [
+            'title' => $_POST['title'],
+            'participants' => $_POST['partecipants'],
+            'description' => $_POST['description'],
+        ];
+        $newEvent = new Event($newEventData);
+
+        // Aggiungi il nuovo evento all'utente loggato
+        $loggedInUser->addEvent($newEvent);
+
+
+        // Aggiorna il file JSON con i dati aggiornati
+        $usersData[$userIndex] = $loggedInUser->getData();
+        $newJsonData = json_encode($usersData);
+
 
         file_put_contents($fileName, $newJsonData);
     }
 }
+
 header('Location: ../admin.php');

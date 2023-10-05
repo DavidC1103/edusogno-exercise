@@ -13,26 +13,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['first_name'];
     $lastname = $_POST['last_name'];
     $events = $_POST['events'];
+    $loggedIn = false;
+
     //ciclo gli utenti e verifico solo le credenziali che ci interessano
     foreach ($users as $user) {
-        //se sono uguali a quelle salvate allora lo reindirizzo alla pagina admin
+
         if ($user['email'] === $email && $user['password'] === $password) {
             session_start();
 
-            $_SESSION['first_name'] = $user['first_name'];
-            $_SESSION['last_name'] = $user['last_name'];
-            $_SESSION['email'] = $email;
-            $_SESSION['password'] = $password;
-            $_SESSION['events'] = $events;
+            $_SESSION['user_data'] = [
+                'first_name' => $user['first_name'],
+                'last_name' => $user['last_name'],
+                'email' => $email,
+                'password' => $user['password'],
+                'events' => $user['events'],
+            ];
 
             $_SESSION['logged'] = true;
-
-            header('Location: ../admin.php');
-            exit;
-
-            //altrimenti lo riporto al login
-        } else {
-            header('Location: ../login.html');
+            $_SESSION['email'] = $email;
+            $loggedIn = true;
+            break;
         }
+    }
+
+
+    if ($loggedIn) {
+        header('Location: ../admin.php');
+        exit;
+    } else {
+        header('Location: ../login.html');
     }
 }

@@ -1,21 +1,26 @@
 <?php
-
 session_start();
 if ($_SESSION['logged'] !== true || !isset($_SESSION['logged'])) {
     header('location: login.html');
     exit;
-}
-$userEmail = $_SESSION['email'];
-$jsonData = file_get_contents('users.json');
-$data = json_decode($jsonData, true);
+} else {
+    require_once 'php/UserEvent.php';
 
-$loggedUser = null;
-foreach ($data as $user) {
-    if ($user['email'] === $userEmail) {
-        $loggedUser = $user;
+    $user = new User($_SESSION['user_data']); // Crea un oggetto User utilizzando i dati dell'utente in sessione
+
+    $userEmail = $_SESSION['email']; // Ottieni l'email dell'utente dalla sessione
+
+    $jsonData = file_get_contents('users.json');
+    $data = json_decode($jsonData, true);
+
+    $loggedUser = null;
+    foreach ($data as $userData) {
+        if ($userData['email'] === $userEmail) {
+            $loggedUser = $userData; // Trova l'utente corrente nel JSON
+        }
     }
 }
-
+var_dump($user)
 ?>
 
 
@@ -36,24 +41,24 @@ foreach ($data as $user) {
     </header>
 
     <main>
-        <h1>Ciao <?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] ?> ecco i tuoi Eventi</h1>
+        <h1>Ciao <?php echo $user->getFirstName() . ' ' . $user->getLastName(); ?> ecco i tuoi Eventi</h1>
+        <a href="./view/create.php">provaaaaaa</a>
 
         <div class="container">
             <?php if (!empty($loggedUser['events'])) : ?>
                 <?php foreach ($loggedUser['events'] as $event) : ?>
                     <div class="todo">
                         <h2><?php echo $event['title']; ?></h2>
-                        <a id="submit" href="/view/view.php">VAI!</a>
+                        <a id="submit" href="/view/edit.php">VAI!</a>
                     </div>
                 <?php endforeach; ?>
             <?php else : ?>
                 <p>Nessun evento disponibile.</p>
             <?php endif; ?>
 
+            <a href="./php/logout.php" style="font-size: 25px; color:grey">Logout</a>
         </div>
 
-        <a href="./view/create.php">prova</a>
-        <a href="./php/logout.php" style="font-size: 25px; color:grey">Logout</a>
     </main>
     <script src="js/main.js"></script>
 </body>
