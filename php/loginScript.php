@@ -1,21 +1,19 @@
 <?php
-//leggo il json
+//Leggo il json
 $fileName = '../users.json';
 $jsonData = file_get_contents($fileName);
-//rendo il json un array associativo mettendo true
+//Rendo il json un array associativo mettendo true
 $users = json_decode($jsonData, true);
 
-//verifico i dati inviati tramite il form in POST
+$error = array('ciao');
+//Verifico i dati inviati tramite il form in POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    //recupero le credenziali nel file json
+    //Recupero le credenziali nel file json
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $name = $_POST['first_name'];
-    $lastname = $_POST['last_name'];
-    $events = $_POST['events'];
     $loggedIn = false;
 
-    //ciclo gli utenti e verifico solo le credenziali che ci interessano
+    //Ciclo gli utenti e verifico solo le credenziali che ci interessano
     foreach ($users as $user) {
 
         if ($user['email'] === $email && $user['password'] === $password) {
@@ -35,12 +33,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             break;
         }
     }
+    if ($user['email'] !== $email) {
+        array_push($error, 'Email non presente nel nostro database');
+    } elseif ($user['password'] !== $password) {
+        array_push($error, 'Password errata');
+    }
 
 
     if ($loggedIn) {
         header('Location: ../admin.php');
         exit;
     } else {
-        header('Location: ../login.html');
+        header('Location: ../login.php');
     }
 }

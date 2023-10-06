@@ -54,7 +54,7 @@ label {
 form {
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
+    margin-top: 55px;
     background-color: white;
     padding: 50px;
     border: 1px solid #134077;
@@ -95,7 +95,7 @@ form input {
     color: #134077;
 }
 
-#submit {
+#btnSub {
     border: none;
     background-color: #0057FF;
     color: white;
@@ -106,7 +106,7 @@ form input {
     text-decoration: none;
 }
 
-#submit:hover {
+#btnSub:hover {
     background-color: #003eba;
     cursor: pointer;
 }
@@ -139,4 +139,11 @@ input::placeholder {
     text-align: start;
     box-sizing: border-box;
     margin-bottom: 100px;
+}
+
+
+.p-error {
+    color: red;
+    font-size: 30px;
+    margin-top: 20px;
 }

@@ -22,4 +22,4 @@ $newJsonData = json_encode($users);
 file_put_contents($fileName, $newJsonData);
 
 
-header('location: ../login.html');
+header('location: ../login.php');
