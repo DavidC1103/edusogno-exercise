@@ -35,6 +35,20 @@ class Event
     {
         return $this->description;
     }
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    public function setPartecipants($partecipants)
+    {
+        $this->partecipants = $partecipants;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
     public function getEventData()
     {
         return [

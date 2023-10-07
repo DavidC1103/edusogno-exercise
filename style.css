@@ -55,6 +55,7 @@ form {
     display: flex;
     flex-direction: column;
     margin-top: 55px;
+    margin-bottom: 55px;
     background-color: white;
     padding: 50px;
     border: 1px solid #134077;
@@ -146,4 +147,63 @@ input::placeholder {
     color: red;
     font-size: 30px;
     margin-top: 20px;
+}
+
+.logout-container {
+    margin-top: 50px;
+    width: 95%;
+    text-align: end;
+}
+
+.logout {
+    font-size: 25px;
+    color: grey;
+}
+
+.icons {
+    margin-bottom: 40px;
+    width: 70%;
+    text-align: end;
+}
+
+.back {
+
+    margin-top: 50px;
+    margin-left: 50px;
+    display: inline-block;
+}
+
+.btn-admin {
+    text-align: center;
+}
+
+.btnAdd {
+    color: green;
+    font-size: 40px;
+}
+
+.btnEdit {
+    color: #003eba;
+    font-size: 35px;
+    margin-left: 20px;
+}
+
+.btnDelete {
+    color: red;
+    font-size: 35px;
+    margin-left: 20px;
+}
+
+.details {
+    background-color: white;
+    padding: 30px;
+    width: 100%;
+    min-height: 300px;
+    border-radius: 19px;
+    color: rgb(0, 0, 121);
+    font-size: 25px;
+}
+
+.part {
+    margin-bottom: 30px;
 }

@@ -29,24 +29,24 @@ $user = $_SESSION['user_data'];
     <header>
         <img src="../logo.svg" alt="Edusogno">
     </header>
+    <a href="../admin.php" class="back">Torna alla Dashboard</a>
     <main>
         <h1>Crea un nuovo Evento!</h1>
         <form action="../php/events.php" method="POST">
-            <label for="title">Titolo del primo evento</label>
+            <label for="title">Titolo dell'evento</label>
             <input type="text" name="title" id="title" required>
 
-            <label for="partecipants">Partecipanti del primo evento</label>
+            <label for="partecipants">Partecipanti dell'evento</label>
             <input type="text" name="partecipants" id="partecipants" required>
 
-            <label for="description">Descrizione del primo evento</label>
-            <input type="text" name="description" id="description" required>
+            <label for="description">Descrizione dell'evento</label>
+            <textarea type="text" name="description" id="description" style="height: 200px; margin-bottom: 20px" required></textarea>
 
 
-            <input type="submit" value="Aggiungi" id="submit">
+            <input type="submit" value="Aggiungi" id="btnSub">
 
         </form>
 
-        <a href="../admin.php">aaa</a>
     </main>
     <script src="../js/main.js"></script>
 </body>
