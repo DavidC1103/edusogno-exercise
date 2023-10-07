@@ -40,7 +40,8 @@ $user = $_SESSION['user_data'];
             <input type="text" name="partecipants" id="partecipants" required>
 
             <label for="description">Descrizione dell'evento</label>
-            <textarea type="text" name="description" id="description" style="height: 200px; margin-bottom: 20px" required></textarea>
+            <textarea type="text" name="description" id="description" style="height: 200px; margin-bottom: 20px"
+                required></textarea>
 
 
             <input type="submit" value="Aggiungi" id="btnSub">
@@ -48,7 +49,7 @@ $user = $_SESSION['user_data'];
         </form>
 
     </main>
-    <script src="../js/main.js"></script>
+
 </body>
 
 </html>

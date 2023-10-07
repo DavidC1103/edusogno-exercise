@@ -1,1 +1,26 @@
-[{"first_name":"Marco","last_name":"Rossi","email":"ulysses200915@varen8.com","password":"Edusogno123"},{"first_name":"Filippo","last_name":"D'amelio","email":"qmonkey14@falixiao.com","password":"Edusogno?123"},{"first_name":"Gian Luca","last_name":"Carta","email":"mavbafpcmq@hitbase.net","password":"EdusognoCiao"},{"first_name":"Stella","last_name":"De Grandis","email":"dgipolga@edume.me","password":"EdusognoGia"},{"first_name":"12","last_name":"12","email":"12@12.com","password":"12","events":[]},{"first_name":"22","last_name":"22","email":"3333@gmail.com","password":"12","events":[{"id":"6520ba1025701","title":"dsadas","partecipants":"dsadas","description":"dsadas"}]}]
+[
+    {
+        "first_name": "Marco",
+        "last_name": "Rossi",
+        "email": "ulysses200915@varen8.com",
+        "password": "Edusogno123"
+    },
+    {
+        "first_name": "Filippo",
+        "last_name": "D'amelio",
+        "email": "qmonkey14@falixiao.com",
+        "password": "Edusogno?123"
+    },
+    {
+        "first_name": "Gian Luca",
+        "last_name": "Carta",
+        "email": "mavbafpcmq@hitbase.net",
+        "password": "EdusognoCiao"
+    },
+    {
+        "first_name": "Stella",
+        "last_name": "De Grandis",
+        "email": "dgipolga@edume.me",
+        "password": "EdusognoGia"
+    }
+]

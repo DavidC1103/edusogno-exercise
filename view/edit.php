@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Verifica l'autenticazione
 if (!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
     header('location: login.php');
     exit;
@@ -33,11 +32,11 @@ $updatedEvent = array();
 // Verifica se è stato passato un parametro "event_id" nell'URL
 if (isset($_GET['event_id'])) {
     $eventID = $_GET['event_id'];
-    $found = false;
+
     // Cerca l'evento corrispondente nell'utente loggato
     if (isset($_SESSION['events'])) {
         foreach ($_SESSION['events'] as $key => $event) {
-            echo "Iterating through an event<br>";
+
             if (isset($event['id']) && $event['id'] == $eventID) {
                 // Se l'evento è stato trovato e la richiesta è di tipo POST, aggiorna i dati dell'evento
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -67,8 +66,7 @@ if (isset($_GET['event_id'])) {
 
 
 
-var_dump($updatedEvent);
-var_dump($_POST);
+
 
 ?>
 

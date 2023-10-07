@@ -6,21 +6,18 @@ await fetch('./users.json')
 
     })
 
-console.log(filename[0].email);
-
 const btnSub = document.getElementById('btnSub')
 
 
 btnSub.addEventListener('click', function (event) {
     let checkData = false
-    const email = document.getElementById('email').value
     const password = document.getElementById('password').value
-    const form = document.getElementById('login_form')
+    const form = document.getElementById('pw_form')
 
 
     filename.forEach(user => {
 
-        if (email !== user.email && password !== user.password) {
+        if (password !== user.password) {
             event.preventDefault()
         } else {
             checkData = true
@@ -37,7 +34,7 @@ btnSub.addEventListener('click', function (event) {
         if (typeof (controllDiv) != 'undefined' && controllDiv != null) {
             console.log('esiste');
         } else {
-            p_error.innerHTML = 'Dati errati controlla i dati inseriti'
+            p_error.innerHTML = 'Vecchia password errata'
             p_error.classList.add('p-error')
             errorDiv.append(p_error)
         }

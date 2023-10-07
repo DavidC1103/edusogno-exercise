@@ -76,7 +76,8 @@ if (isset($_GET['event_id'])) {
 
         <div class="icons">
             <a href="edit.php?event_id=<?php echo $event['id']; ?>" class="btnEdit"><i class="fa-solid fa-pen"></i></a>
-            <a href="delete.php?event_id=<?php echo $event['id']; ?>" class="btnDelete"><i class="fa-solid fa-trash"></i></a>
+            <a href="delete.php?event_id=<?php echo $event['id']; ?>" class="btnDelete"><i
+                    class="fa-solid fa-trash"></i></a>
         </div>
         <div class="container">
             <div class="details">
@@ -92,7 +93,7 @@ if (isset($_GET['event_id'])) {
 
     </main>
 
-    <script src="../js/main.js"></script>
+
 </body>
 
 </html>
