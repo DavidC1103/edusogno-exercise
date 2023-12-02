@@ -18,15 +18,16 @@
 
     <main>
         <h1>Crea il tuo account</h1>
-    
+
 
         <form action="php/register.php" method="POST" id="form">
 
+
             <label for="first_name">Inserisci il nome</label>
-            <input type="text" name="first_name" id="first_name" placeholder="Mario" required>
+            <input type="text" name="first_name" id="first_name" placeholder="Inserisci nome" required>
 
             <label for="last_name">Inserisci il cognome</label>
-            <input type="text" name="last_name" id="last_name" placeholder="Rossi" required>
+            <input type="text" name="last_name" id="last_name" placeholder="Inserisci cognome" required>
 
             <label for="email">Inserisci l'email</label>
             <input type="email" name="email" id="email" placeholder="name@example.com" required>
@@ -36,14 +37,14 @@
                 <input type="password" name="password" id="password" placeholder="Scrivila qui" required>
                 <i class="fa-regular fa-eye-slash" id="togglepw"></i>
             </div>
-            
-            
-            <input type="submit" value="Registrati" id="btnSub">
-            <p>Sei gia registrato? <a href="loginScript.php">Accedi</a></p>
+
+
+            <input type="submit" name="submit" value="Registrati" id="btnSub">
+            <p>Sei gia registrato? <a href="login.php">Accedi</a></p>
         </form>
-    
+
     </main>
-<script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 

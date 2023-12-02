@@ -27,7 +27,6 @@ foreach ($usersData as $key => $userData) {
 
 
 $eventID = null;
-$updatedEvent = array();
 
 // Verifica se è stato passato un parametro "event_id" nell'URL
 if (isset($_GET['event_id'])) {
@@ -44,8 +43,6 @@ if (isset($_GET['event_id'])) {
                     $updatedEvent['title'] = $_POST['title'];
                     $updatedEvent['partecipants'] = $_POST['partecipants'];
                     $updatedEvent['description'] = $_POST['description'];
-                    echo "Updated event: ";
-                    print_r($updatedEvent);
 
                     // Aggiorna $_SESSION con i nuovi dati
                     $_SESSION['events'][$key] = $updatedEvent;
@@ -97,11 +94,14 @@ if (isset($_GET['event_id'])) {
 
             <input type="hidden" name="event_id" value="<?php echo $eventID; ?>">
             <label for="title">Titolo:</label>
-            <input type="text" id="title" name="title" value="<?php echo isset($updatedEvent['title']) ? $updatedEvent['title'] : ''; ?>" required>
+            <input type="text" id="title" name="title"
+                value="<?php echo isset($event['title']) ? $event['title'] : ''; ?>" required>
             <label for="partecipants">Partecipanti:</label>
-            <input type="text" id="partecipants" name="partecipants" value="<?php echo isset($updatedEvent['partecipants']) ? $updatedEvent['partecipants'] : ''; ?>" required>
+            <input type="number" id="partecipants" name="partecipants"
+                value="<?php echo isset($event['partecipants']) ? $event['partecipants'] : ''; ?>" required>
             <label for="description">Descrizione:</label>
-            <textarea id="description" name="description" style="height: 200px; margin-bottom: 20px" required><?php echo isset($updatedEvent['description']) ? $updatedEvent['description'] : ''; ?></textarea>
+            <textarea id="description" name="description" style="height: 200px; margin-bottom: 20px"
+                required><?php echo isset($event['description']) ? $event['description'] : ''; ?></textarea>
             <input type="submit" value="Salva Modifiche" id="btnSub">
         </form>
     </main>

@@ -4,8 +4,6 @@ const inputPassword = document.getElementById('password');
 const inputNewPw = document.getElementById('newPw');
 
 
-console.log(inputNewPw);
-console.log(toggleNewPw);
 
 togglePassword.addEventListener('click', function () {
     if (inputPassword.type === 'password') {

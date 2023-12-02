@@ -1,6 +1,7 @@
 <?php
-include './php/loginScript.php'
-
+    @include './php/loginScript.php';
+    var_dump($errors);
+    var_dump($ciao);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +24,17 @@ include './php/loginScript.php'
     <main>
         <h1>Hai gia un account?</h1>
 
+        <div id="error-div">
+            <?php
+                 if (!empty($errors)) {
+                    echo '<ul>';
+                    foreach ($errors as $error) {
+                        echo '<li>' . htmlspecialchars($error) . '</li>';
+                    }
+                    echo '</ul>';
+                }
+            ?>
+        </div>
         <form action="php/loginScript.php" method="POST" id="login_form">
 
             <label for="email">Inserisci l'email</label>
@@ -35,10 +47,9 @@ include './php/loginScript.php'
             </div>
 
             <input type="submit" value="Accedi" id="btnSub">
-            <p>Non hai ancora un profilo? <a href="index.html">Registrati</a></p>
+            <p>Non hai ancora un profilo? <a href="index.php">Registrati</a></p>
         </form>
 
-        <div id="error-div"></div>
     </main>
     <script src="js/main.js"></script>
     <script src="js/login.js" type="module"></script>

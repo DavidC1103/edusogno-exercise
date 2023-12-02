@@ -53,20 +53,21 @@ if ($_SESSION['logged'] !== true || !isset($_SESSION['logged'])) {
         <a href="./php/logout.php" class="logout">Logout</a>
     </div>
     <main>
-        <h1>Ciao <?php echo $user->getFirstName() . ' ' . $user->getLastName(); ?> ecco i tuoi Eventi</h1>
+        <h1>Ciao <?php echo ucfirst($user->getFirstName()) . ' ' . ucfirst($user->getLastName()); ?> ecco i tuoi Eventi
+        </h1>
         <h3>Aggiungi evento</h3>
         <a href="./view/create.php" class="btnAdd"><i class="fa-solid fa-square-plus"></i></a>
 
         <div class="container">
             <?php if (!empty($_SESSION['events'])) : ?>
-                <?php foreach ($_SESSION['events'] as $event) : ?>
-                    <div class="todo">
-                        <h2 class="title"><?php echo $event['title']; ?></h2>
-                        <a id="btnSub" class="btnEvent" href="view/view.php?event_id=<?php echo $event['id']; ?>">VAI!</a>
-                    </div>
-                <?php endforeach; ?>
+            <?php foreach ($_SESSION['events'] as $event) : ?>
+            <div class="todo">
+                <h2 class="title"><?php echo $event['title']; ?></h2>
+                <a id="btnSub" class="btnEvent" href="view/view.php?event_id=<?php echo $event['id']; ?>">VAI!</a>
+            </div>
+            <?php endforeach; ?>
             <?php else : ?>
-                <p>Nessun evento disponibile.</p>
+            <p>Nessun evento disponibile.</p>
             <?php endif; ?>
 
 

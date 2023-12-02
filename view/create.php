@@ -37,7 +37,7 @@ $user = $_SESSION['user_data'];
             <input type="text" name="title" id="title" required>
 
             <label for="partecipants">Partecipanti dell'evento</label>
-            <input type="text" name="partecipants" id="partecipants" required>
+            <input type="number" name="partecipants" id="partecipants" required>
 
             <label for="description">Descrizione dell'evento</label>
             <textarea type="text" name="description" id="description" style="height: 200px; margin-bottom: 20px"
